@@ -1,0 +1,16 @@
+{
+  "name": "horizontal",
+  "version": "2.2.9",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://danteimerito.github.io/horizontal",
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}
