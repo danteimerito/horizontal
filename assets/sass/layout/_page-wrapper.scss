@@ -34,9 +34,6 @@
 			height: auto;
 			padding: 1rem;
 		}
-		.panel{
-			margin-top:0;
-		}
 	}
 
 	@include breakpoint('<=xsmall') {
