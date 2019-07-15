@@ -5,117 +5,114 @@
 ///
 
 /* Wrapper */
-body{
- // margin-top:4rem;
-}
-#wrapper {
-  @include vendor("display", "flex");
-  @include vendor("flex-direction", "row");
-  @include vendor(
-    "transition",
-    ("opacity 1s ease-out", "transform 0.75s ease-out")
-  );
-  @include vendor("transition-delay", "0.25s");
-  cursor: default;
-  position: relative;
-  height: 32rem;
-  box-shadow: 0 5rem 3rem 0.25rem transparentize(_palette(bg), 0.425);
-  margin-right: 4rem;
 
-  > .scrollZone {
-    position: fixed;
-    width: 6rem;
-    height: inherit;
-    cursor: -moz-grab;
-    cursor: -webkit-grab;
-    cursor: -ms-grab;
-    cursor: grab;
-    z-index: _misc(z-index-base) + 100;
+	#wrapper {
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'row');
+		@include vendor('transition', (
+			'opacity 1s ease-out',
+			'transform 0.75s ease-out'
+		));
+		@include vendor('transition-delay', '0.25s');
+		cursor: default;
+		position: relative;
+		height: 32rem;
+		box-shadow: 0 2rem 4rem 0.25rem transparentize(_palette(bg), 0.425);
 
-    &.left {
-      left: 0;
-    }
+		> .scrollZone {
+			position: fixed;
+			width: 6rem;
+			height: inherit;
+			cursor: -moz-grab;
+			cursor: -webkit-grab;
+			cursor: -ms-grab;
+			cursor: grab;
+			z-index: _misc(z-index-base) + 100;
 
-    &.right {
-      right: 0;
-    }
-  }
+			&.left {
+				left: 0;
+			}
 
-  > .copyright {
-    position: absolute;
-    bottom: -3rem;
-    right: 0;
-    font-size: 0.8rem;
-    color: transparentize(_palette(bg), 0.625);
-    margin-bottom: 0;
+			&.right {
+				right: 0;
+			}
+		}
 
-    a {
-      &:hover {
-        color: inherit;
-      }
-    }
-  }
+		> .copyright {
+			position: absolute;
+			bottom: -3rem;
+			right: 0;
+			font-size: 0.8rem;
+			color: transparentize(_palette(bg), 0.625);
+			margin-bottom: 0;
 
-  &.is-dragging {
-    @include vendor("user-select", "none");
-    cursor: -moz-grab;
-    cursor: -webkit-grab;
-    cursor: -ms-grab;
-    cursor: grab;
+			a {
+				&:hover {
+					color: inherit;
+				}
+			}
+		}
 
-    * {
-      @include vendor("user-select", "none");
-    }
+		&.is-dragging {
+			@include vendor('user-select', 'none');
+			cursor: -moz-grab;
+			cursor: -webkit-grab;
+			cursor: -ms-grab;
+			cursor: grab;
 
-    *:not(a, .image) {
-      cursor: -moz-grab;
-      cursor: -webkit-grab;
-      cursor: -ms-grab;
-      cursor: grab;
-    }
-  }
+			* {
+				@include vendor('user-select', 'none');
+			}
 
-  &.is-dragged {
-    * {
-      @include vendor("pointer-events", "none");
-    }
-  }
+			*:not(a, .image) {
+				cursor: -moz-grab;
+				cursor: -webkit-grab;
+				cursor: -ms-grab;
+				cursor: grab;
+			}
+		}
 
-  body.is-preload & {
-    @include vendor("transform", "translateX(6rem)");
-    opacity: 0;
-  }
-}
+		&.is-dragged {
+			* {
+				@include vendor('pointer-events', 'none');
+			}
+		}
 
-@include breakpoint("<=small") {
-  #wrapper {
-    @include vendor("flex-direction", "column");
-    height: auto;
-    margin: 0 0 5rem 0;
-    box-shadow: 0 0.25rem 1.5rem 0.25rem transparentize(_palette(bg), 0.5);
+		body.is-preload & {
+			@include vendor('transform', 'translateX(2rem)');
+			opacity: 0;
+		}
+	}
 
-    > .scrollZone {
-      display: none;
-    }
+	@include breakpoint('<=small') {
+		#wrapper {
+			@include vendor('flex-direction', 'column');
+			height: auto;
+			margin: 0 0 5rem 0;
+			box-shadow: 0 0.25rem 1.5rem 0.25rem transparentize(_palette(bg), 0.5);
 
-    > .copyright {
-      display: block;
-      width: 100%;
-      text-align: center;
-    }
+			> .scrollZone {
+				display: none;
+			}
 
-    body.is-preload & {
-      @include vendor("transform", "translateY(1rem)");
-    }
-  }
-}
+			> .copyright {
+				display: block;
+				width: 100%;
+				text-align: center;
+			}
 
-@include breakpoint("<=xsmall") {
-  #wrapper {
-    box-shadow: none;
+			body.is-preload & {
+				@include vendor('transform', 'translateY(1rem)');
+			}
+		}
+	}
 
-    body.is-preload & {
-      @include vendor("transform", "none");
-    }
-  }
-}
+	@include breakpoint('<=xsmall') {
+		#wrapper {
+			box-shadow: none;
+
+			body.is-preload & {
+				@include vendor('transform', 'none');
+			}
+		}
+	}
